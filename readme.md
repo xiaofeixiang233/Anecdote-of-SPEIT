@@ -7,4 +7,6 @@
 
 巴院段子\
 1.[巴院和ACM谁与争锋](SPEIT_VS_ACM.md)\
-2.[]
+2.[不过是考DS前的幻想罢了](jest_of_SPEIT.md)
+
+
