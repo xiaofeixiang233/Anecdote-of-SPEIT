@@ -11,5 +11,5 @@
 
 生存手册\
 1.[是否要考concours](Life_at_X)
-
+2.[外企实习一二事](Intern_international_company.md)
 
