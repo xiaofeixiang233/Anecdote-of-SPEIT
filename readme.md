@@ -1,5 +1,9 @@
 欢迎来到巴黑的聚集地，在这里你可以畅所欲言，尽情的喷，发泄自己不满的情绪
 
+Fun facts about SPEIT\
+1. [Internship Killer](Speit--Internship Killer.md)\
+   
+
 巴院三大公理\
 1.polytechnique大于其它工程师学院，远大于世界上任意一所学校\
 2.制造业和国企是最好的去向, SPEIT的学生看不上字节跳动\
