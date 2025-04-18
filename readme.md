@@ -10,6 +10,6 @@
 2.[不过是考DS前的幻想罢了](jest_of_SPEIT.md)
 
 生存手册\
-1.[是否要考concours]()
+1.[是否要考concours](Life_at_X.md)
 
 
