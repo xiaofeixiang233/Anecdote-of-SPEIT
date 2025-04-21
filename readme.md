@@ -11,7 +11,8 @@ Fun facts about SPEIT\
 
 巴院段子\
 1.[巴院和ACM谁与争锋](SPEIT_VS_ACM.md)\
-2.[不过是考DS前的幻想罢了](jest_of_SPEIT.md)
+2.[不过是考DS前的幻想罢了](jest_of_SPEIT.md)\
+3.[CTI认证 = 6000万](value_of_CTI.md)
 
 生存手册\
 1.[是否要考concours](Life_at_X)\
