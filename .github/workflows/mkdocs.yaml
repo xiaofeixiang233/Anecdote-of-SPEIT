@@ -15,7 +15,7 @@ jobs:
     - name: Commit changes
       uses: EndBug/add-and-commit@v9
       with:
-        add: site/
+        add: site/ --force
         author_email: anecdote+github-actions[bot]@users.noreply.github.com
         author_name: github-actions[bot]
         message: '[bot] Build MkDocs site'

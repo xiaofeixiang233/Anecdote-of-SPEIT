@@ -177,7 +177,7 @@
                       author_name = "github-actions[bot]";
                       author_email = "anecdote+github-actions[bot]@users.noreply.github.com";
                       message = "[bot] Build MkDocs site";
-                      add = "site/";
+                      add = "site/ --force";
                     };
                   }
                 ];
