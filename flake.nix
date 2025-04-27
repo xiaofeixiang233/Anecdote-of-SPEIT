@@ -163,18 +163,22 @@
                     # uses = "cachix/install-nix-action@v31";
                   }
                   {
-                    run = ''
-                      git config user.name github-actions[bot]
-                      git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-                    '';
-                  }
-                  {
                     name = "Build MkDocs static site";
                     run = ''
                       nix build .#documentation
                       mkdir -p site
                       cp -r result/* site/
                     '';
+                  }
+                  {
+                    name = "Commit changes";
+                    uses = "EndBug/add-and-commit@v9";
+                    "with" = {
+                      author_name = "github-actions[bot]";
+                      author_email = "anecdote+github-actions[bot]@users.noreply.github.com";
+                      message = "[bot] Build MkDocs site";
+                      add = "site/";
+                    };
                   }
                 ];
               };
