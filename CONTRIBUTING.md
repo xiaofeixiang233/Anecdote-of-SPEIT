@@ -1,11 +1,30 @@
 # CONTRIBUTING
 
-## Basic: export patch file
+## Directory hierarchy
+
+```
+ .
+├──  docs
+│   ├──  docs
+│   │   ├──  joke
+│   │   │   └── ... # Markdown files
+│   │   ├──  survive
+│   │   │   └── ... # Markdown files
+│   │   └──  index.md # Main page
+│   └──  mkdocs.yml # Route (Page path configuration)
+├──  Images
+│   └──  xxx
+│       └── ... # Image files
+└── ...
+```
+
+## How to contribute
 
 如不能熟练使用 Git，建议通过导出 diff patch 的方式提交变更内容。
 
-注意：在 Windows 平台导出 patch 时，请务必确认使用 PowerShell (Core) v7.4+ ！
+### Windows
 
+在 Windows 平台导出 patch 时，请务必确认使用 PowerShell (Core) v7.4+ ！
 
 ```powershell
 host
@@ -26,3 +45,7 @@ git show COMMIT_HASH
 git add --all
 git diff --cached > mypatch.patch
 ```
+
+### How to develop with MkDocs
+
+See [MkDocs - User Guide](https://www.mkdocs.org/user-guide)

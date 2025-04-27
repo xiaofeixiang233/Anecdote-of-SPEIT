@@ -1,0 +1,27 @@
+jobs:
+  mkdocs-ci:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: nixbuild/nix-quick-install-action@v30
+    - run: 'git config user.name github-actions[bot]
+
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+        '
+    - name: Build MkDocs static site
+      run: 'nix build .#documentation
+
+        mkdir -p site
+
+        cp -r result/* site/
+
+        '
+    timeout-minutes: 20
+name: Build MkDocs
+'on':
+  push:
+    branches:
+    - main
+permissions:
+  contents: write

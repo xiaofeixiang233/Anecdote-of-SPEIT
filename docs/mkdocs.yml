@@ -1,0 +1,12 @@
+site_name: Barycentre
+nav:
+  - 主页: index.md
+  - 巴院段子:
+      - 巴院和ACM谁与争锋: joke/SPEIT_VS_ACM.md
+      - 不过是考DS前的幻想罢了: joke/Jokes_of_SPEIT.md
+      - CTI认证 = 6000万: joke/Value_of_CTI.md
+      - 实习杀手: joke/SPEIT_internship_killer.md
+  - 生存手册:
+      - 巴院教育体系的罪与罚: survive/Education_at_SPEIT.md
+      - 是否要考concours(WIP🚧): survive/Life_at_X.md
+      - 外企实习一二事: survive/Intern_international_company.md
