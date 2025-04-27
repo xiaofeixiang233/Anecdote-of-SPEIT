@@ -1,10 +1,12 @@
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
 jobs:
-  mkdocs-ci:
+  mkdocs-gh-pages:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: nixbuild/nix-quick-install-action@v30
-    - name: Build MkDocs static site
+    - name: Build
       run: 'nix build .#documentation
 
         mkdir -p site
@@ -12,15 +14,14 @@ jobs:
         cp -r result/* site/
 
         '
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
+    - if: github.ref == 'refs/heads/main'
+      name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        add: site/ --force
-        author_email: anecdote+github-actions[bot]@users.noreply.github.com
-        author_name: github-actions[bot]
-        message: '[bot] Build MkDocs site'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
     timeout-minutes: 20
-name: Build MkDocs
+name: Deploy MkDocs to GitHub Pages
 'on':
   push:
     branches:
