@@ -4,11 +4,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: nixbuild/nix-quick-install-action@v30
-    - run: 'git config user.name github-actions[bot]
-
-        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-
-        '
     - name: Build MkDocs static site
       run: 'nix build .#documentation
 
@@ -17,6 +12,13 @@ jobs:
         cp -r result/* site/
 
         '
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: site/
+        author_email: anecdote+github-actions[bot]@users.noreply.github.com
+        author_name: github-actions[bot]
+        message: '[bot] Build MkDocs site'
     timeout-minutes: 20
 name: Build MkDocs
 'on':
