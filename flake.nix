@@ -137,14 +137,13 @@
                     # uses = "cachix/install-nix-action@v31";
                   }
                   {
-                    name = "Check flake";
-                    run = "nix -Lv flake check";
+                    run = "nix flake check";
                   }
                 ];
               };
             };
-            ".github/workflows/mkdocs.yaml" = {
-              name = "Build MkDocs";
+            ".github/workflows/gh-pages.yml" = {
+              name = "Deploy MkDocs to GitHub Pages";
               on = {
                 push = {
                   branches = [ "main" ];
@@ -153,7 +152,10 @@
               permissions = {
                 contents = "write";
               };
-              jobs.mkdocs-ci = {
+              concurrency = {
+                group = "\${{ github.workflow }}-\${{ github.ref }}";
+              };
+              jobs.mkdocs-gh-pages = {
                 steps = [
                   {
                     uses = "actions/checkout@v4";
@@ -163,7 +165,7 @@
                     # uses = "cachix/install-nix-action@v31";
                   }
                   {
-                    name = "Build MkDocs static site";
+                    name = "Build";
                     run = ''
                       nix build .#documentation
                       mkdir -p site
@@ -171,18 +173,16 @@
                     '';
                   }
                   {
-                    name = "Commit changes";
-                    uses = "EndBug/add-and-commit@v9";
+                    name = "Deploy";
+                    uses = "peaceiris/actions-gh-pages@v4";
+                    "if" = "github.ref == 'refs/heads/main'";
                     "with" = {
-                      author_name = "github-actions[bot]";
-                      author_email = "anecdote+github-actions[bot]@users.noreply.github.com";
-                      message = "[bot] Build MkDocs site";
-                      add = "site/ --force";
+                      github_token = "\${{ secrets.GITHUB_TOKEN }}";
+                      publish_dir = "./site";
                     };
                   }
                 ];
               };
-
             };
           };
         };

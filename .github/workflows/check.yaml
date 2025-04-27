@@ -4,8 +4,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: nixbuild/nix-quick-install-action@v30
-    - name: Check flake
-      run: nix -Lv flake check
+    - run: nix flake check
     timeout-minutes: 20
 name: Check with flake
 'on':
